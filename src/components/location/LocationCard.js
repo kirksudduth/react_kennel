@@ -1,11 +1,13 @@
 import React from "react";
 
-const LocationCard = () => {
+const LocationCard = (props) => {
   return (
-    <div className="locationCard">
-      <div className="location_card-content">
-        <h3>Address: 500 Puppy Way</h3>
-        <p>Nashville, TN</p>
+    <div className="card-location">
+      <div className="card-content">
+        <h3>Address: {props.location.street}</h3>
+        <p>
+          {props.location.city}, {props.location.state}
+        </p>
       </div>
     </div>
   );
