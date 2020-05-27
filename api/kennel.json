@@ -1,0 +1,73 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Shepherd"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jasper Beethoven",
+      "hireYear": 2008
+    },
+    {
+      "id": 2,
+      "name": "Alice Dvorak",
+      "hireYear": 2013
+    },
+    {
+      "id": 3,
+      "name": "Consuelo Tchaikovsky",
+      "hireYear": 2018
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "phoneNumber": "615-876-9999",
+      "name": "Caspian Werman"
+    },
+    {
+      "id": 2,
+      "phoneNumber": "615-777-9999",
+      "name": "Ellen Earving"
+    },
+    {
+      "id": 3,
+      "phoneNumber": "615-111-9999",
+      "name": "Hillbert Hillsworth"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "street": "500 Puppy Way",
+      "city": "Nashville",
+      "state": "TN"
+    },
+    {
+      "id": 2,
+      "street": "200 Fido Ave",
+      "city": "Gallatin",
+      "state": "TN"
+    },
+    {
+      "id": 3,
+      "street": "108 Big Wags Cir",
+      "city": "Franklin",
+      "state": "TN"
+    }
+  ]
+}
