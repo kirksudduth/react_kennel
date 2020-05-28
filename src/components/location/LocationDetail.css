@@ -5,7 +5,7 @@
   flex-direction: column;
 }
 
-h3 > span {
+.address {
   color: darkblue;
   font-size: xx-large;
 }

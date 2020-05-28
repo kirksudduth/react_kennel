@@ -12,8 +12,18 @@
     },
     {
       "id": 3,
+      "name": "Slick",
+      "breed": "German Retriever"
+    },
+    {
+      "id": 4,
       "name": "Esme",
       "breed": "Pitbull"
+    },
+    {
+      "id": 5,
+      "name": "My my my",
+      "breed": "Shihtzhu"
     }
   ],
   "employees": [
@@ -59,12 +69,18 @@
     },
     {
       "id": 2,
-      "street": "200 Fido Ave",
-      "city": "Gallatin",
+      "street": "889 Fido Lane",
+      "city": "Nashville",
       "state": "TN"
     },
     {
       "id": 3,
+      "street": "1001 Prescott Ave",
+      "city": "Memphis",
+      "state": "TN"
+    },
+    {
+      "id": 4,
       "street": "108 Big Wags Cir",
       "city": "Franklin",
       "state": "TN"
