@@ -24,6 +24,11 @@
       "id": 5,
       "name": "My my my",
       "breed": "Shihtzhu"
+    },
+    {
+      "name": "Nala",
+      "breed": "Golden Retriever",
+      "id": 6
     }
   ],
   "employees": [
