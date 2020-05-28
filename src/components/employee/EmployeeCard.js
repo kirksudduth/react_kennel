@@ -10,11 +10,11 @@ const EmployeeCard = (props) => {
         <p>Kennel Caretaker Since {props.employee.hireYear}</p>
         <button
           type="button"
-          onclick={() => {
+          onClick={() => {
             props.deleteEmployee(props.employee.id);
           }}
         >
-          U F'd
+          You Out
         </button>
       </div>
     </div>
