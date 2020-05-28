@@ -1,0 +1,11 @@
+.location_card-content {
+  background-color: cornflowerblue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 > span {
+  color: darkblue;
+  font-size: xx-large;
+}
