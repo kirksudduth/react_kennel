@@ -2,11 +2,12 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from "./animal/AnimalForm";
 import EmployeeList from "./employee/EmployeeList";
 import LocationList from "./location/LocationList";
-import OwnerList from "./owner/OwnerList";
-import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
+import OwnerList from "./owner/OwnerList";
 
 const ApplicationViews = () => {
   return (
@@ -22,7 +23,13 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={(props) => {
-          return <AnimalList />;
+          return <AnimalList {...props} />;
+        }}
+      />
+      <Route
+        path="/animals/new"
+        render={(props) => {
+          return <AnimalForm {...props} />;
         }}
       />
       <Route
