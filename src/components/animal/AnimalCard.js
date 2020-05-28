@@ -1,5 +1,6 @@
 import React from "react";
 import "./AnimalCard.css";
+import { Link } from "react-router-dom";
 
 const AnimalCard = (props) => {
   return (
@@ -20,6 +21,9 @@ const AnimalCard = (props) => {
         >
           Discharge
         </button>
+        <Link to={`/animals/${props.animal.id}`}>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );
