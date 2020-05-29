@@ -41,6 +41,16 @@
       "id": 2,
       "name": "Alice Dvorak",
       "hireYear": 2013
+    },
+    {
+      "name": "Johann S. Bach",
+      "hireYear": "2010",
+      "id": 3
+    },
+    {
+      "name": "Pablo Sarasate",
+      "hireYear": "2018",
+      "id": 4
     }
   ],
   "owners": [
