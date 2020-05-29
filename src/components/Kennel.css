@@ -47,6 +47,18 @@ img {
 
 .section-content {
   padding: 1.4em;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background-color: green;
+  color: cornsilk;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: cornflowerblue;
 }
 
 .container-cards {

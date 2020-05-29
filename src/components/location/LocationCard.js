@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const LocationCard = (props) => {
   return (
-    <div className="card-location">
+    <div className="card">
       <div className="card-content">
         <h3>Address: {props.location.street}</h3>
         <p>
