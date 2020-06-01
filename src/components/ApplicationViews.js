@@ -22,7 +22,11 @@ const ApplicationViews = () => {
         exact
         path="/"
         render={(props) => {
-          return <Home />;
+          if (isAuthenticated()) {
+            return <Home />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route

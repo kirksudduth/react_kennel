@@ -35,6 +35,18 @@
       "breed": "Bloodhound",
       "id": 7,
       "employeeId": 3
+    },
+    {
+      "name": "Jowls",
+      "breed": "Bulldog",
+      "employeeId": "3",
+      "id": 8
+    },
+    {
+      "name": "Yonder",
+      "breed": "Beagle",
+      "employeeId": "2",
+      "id": 9
     }
   ],
   "employees": [
