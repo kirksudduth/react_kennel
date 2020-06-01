@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnimalManager from "../../modules/AnimalManager";
 import EmployeeManager from "../../modules/EmployeeManager";
-import EmployeeOption from "../../components/employee/EmployeeOption";
+// import EmployeeOption from "../../components/employee/EmployeeOption";
 import "./AnimalForm.css";
 
 const AnimalForm = (props) => {
@@ -11,9 +11,12 @@ const AnimalForm = (props) => {
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...animal };
+    let targetValue = evt.target.value;
+    if (/^\d+$/.test(targetValue)) {
+      targetValue = parseInt(targetValue);
+    }
     // bracket notation on OBJECT -- evt.target.id refers to name and breed at line 6
-    stateToChange[evt.target.id] = evt.target.value;
-    console.log(evt.target.value);
+    stateToChange[evt.target.id] = targetValue;
     setAnimal(stateToChange);
   };
 
@@ -62,15 +65,20 @@ const AnimalForm = (props) => {
               placeholder="Breed"
             />
             <label htmlFor="breed">Breed</label>
-            <label htmlFor="caretakers">
-              Choose a caretaker:
-              <select type="option" required onChange={handleFieldChange}>
-                <option></option>
-                {employees.map((employee) => (
-                  <EmployeeOption key={employee.id} employee={employee} />
-                ))}
-              </select>
-            </label>
+            <label htmlFor="caretakers">Choose a caretaker:</label>
+            <select
+              type="option"
+              id="employeeId"
+              required
+              onChange={handleFieldChange}
+            >
+              <option>Choose wisely...</option>
+              {employees.map((employee) => (
+                <option key={employee.id} value={parseInt(employee.id, 10)}>
+                  {employee.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="alignRight">
             <button
