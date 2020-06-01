@@ -64,20 +64,10 @@ const AnimalForm = (props) => {
             <label htmlFor="breed">Breed</label>
             <label htmlFor="caretakers">
               Choose a caretaker:
-              <select
-                type="option"
-                id="employeeId"
-                required
-                onChange={handleFieldChange}
-              >
+              <select type="option" required onChange={handleFieldChange}>
                 <option></option>
                 {employees.map((employee) => (
-                  <EmployeeOption
-                    key={employee.id}
-                    employee={employee}
-                    placeholder="Caretaker"
-                    employeeId={employee.id}
-                  />
+                  <EmployeeOption key={employee.id} employee={employee} />
                 ))}
               </select>
             </label>
