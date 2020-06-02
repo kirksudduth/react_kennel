@@ -3,7 +3,6 @@ import "./AnimalCard.css";
 import { Link } from "react-router-dom";
 
 const AnimalCard = (props) => {
-  console.log(props);
   return (
     <div className="card">
       <div className="card-content">
