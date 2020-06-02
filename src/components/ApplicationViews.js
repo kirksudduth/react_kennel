@@ -11,6 +11,7 @@ import EmployeeEditForm from "./employee/EmployeeEditForm";
 import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from "./location/LocationForm";
+import LocationEditForm from "./location/LocationEditForm";
 import OwnerList from "./owner/OwnerList";
 import OwnerForm from "./owner/OwnerForm";
 import Login from "./auth/Login";
@@ -86,10 +87,22 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={(props) => {
           return (
             <LocationDetail
+              locationId={parseInt(props.match.params.locationId)}
+              {...props}
+            />
+          );
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={(props) => {
+          return (
+            <LocationEditForm
               locationId={parseInt(props.match.params.locationId)}
               {...props}
             />
