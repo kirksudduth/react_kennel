@@ -41,12 +41,12 @@
     {
       "id": 1,
       "name": "Jasper Beethoven",
-      "hireYear": 2008
+      "hireYear": "2008"
     },
     {
       "id": 2,
       "name": "Alice Dvorak",
-      "hireYear": 2013
+      "hireYear": "2011"
     },
     {
       "name": "Johann S. Bach",
