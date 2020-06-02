@@ -7,9 +7,11 @@ import AnimalForm from "./animal/AnimalForm";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeForm from "./employee/EmployeeForm";
+import EmployeeEditForm from "./employee/EmployeeEditForm";
 import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from "./location/LocationForm";
+import LocationEditForm from "./location/LocationEditForm";
 import OwnerList from "./owner/OwnerList";
 import OwnerForm from "./owner/OwnerForm";
 import Login from "./auth/Login";
@@ -85,10 +87,22 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={(props) => {
           return (
             <LocationDetail
+              locationId={parseInt(props.match.params.locationId)}
+              {...props}
+            />
+          );
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={(props) => {
+          return (
+            <LocationEditForm
               locationId={parseInt(props.match.params.locationId)}
               {...props}
             />
@@ -107,6 +121,16 @@ const ApplicationViews = () => {
         render={(props) => {
           if (isAuthenticated()) {
             return <EmployeeList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        path="/employees/:employeeId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <EmployeeEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
           }
