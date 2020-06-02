@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
 import AnimalManager from "../../modules/AnimalManager";
 import EmployeeManager from "../../modules/EmployeeManager";
-// import EmployeeOption from "../../components/employee/EmployeeOption";
 import "./AnimalForm.css";
 
-const AnimalForm = (props) => {
+const AnimalEditForm = (props) => {
   const [animal, setAnimal] = useState({ name: "", breed: "", employeeId: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [employees, setEmployees] = useState([]);
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...animal };
-    let targetValue = evt.target.value;
-    if (/^\d+$/.test(targetValue)) {
-      targetValue = parseInt(targetValue);
-    }
-    // bracket notation on OBJECT -- evt.target.id refers to name and breed at line 6
-    stateToChange[evt.target.id] = targetValue;
+    stateToChange[evt.target.id] = evt.target.value;
     setAnimal(stateToChange);
+  };
+
+  const updateExistingAnimal = (evt) => {
+    evt.preventDefault();
+    setIsLoading(true);
+
+    // This is an edit, so we need the id
+    const editedAnimal = {
+      id: props.match.params.animalId,
+      name: animal.name,
+      breed: animal.breed,
+      employeeId: animal.employeeId,
+    };
+
+    AnimalManager.update(editedAnimal).then(() =>
+      props.history.push("/animals")
+    );
   };
 
   const getEmployees = () => {
@@ -25,24 +36,16 @@ const AnimalForm = (props) => {
       setEmployees(employees);
     });
   };
-
   useEffect(() => {
     getEmployees();
   }, []);
 
-  //   Local method for validation, set loadingStatus, create animal
-  //   Object, invoke the AnimalManager post method and redirect to the
-  //   full animal list
-  const constructNewAnimal = (evt) => {
-    evt.preventDefault();
-    if (animal.name === "" || animal.breed === "" || animal.employeeId === "") {
-      window.alert("Please input an animal name, breed and caretaker.");
-    } else {
-      setIsLoading(true);
-      //   Create the animal and redirect the user to animal list
-      AnimalManager.post(animal).then(() => props.history.push("/animals"));
-    }
-  };
+  useEffect(() => {
+    AnimalManager.get(props.match.params.animalId).then((animal) => {
+      setAnimal(animal);
+      setIsLoading(false);
+    });
+  }, []);
 
   return (
     <>
@@ -52,27 +55,30 @@ const AnimalForm = (props) => {
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="name"
-              placeholder="Animal name"
+              value={animal.name}
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Animal name</label>
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="breed"
-              placeholder="Breed"
+              value={animal.breed}
             />
             <label htmlFor="breed">Breed</label>
-            <label htmlFor="caretakers">Choose a caretaker:</label>
+            <label htmlFor="caretakers">Caretaker</label>
             <select
               type="option"
-              id="employeeId"
               required
+              className="form-control"
+              id="employeeId"
               onChange={handleFieldChange}
+              value={animal.employeeId}
             >
-              <option>Choose wisely...</option>
               {employees.map((employee) => (
                 <option key={employee.id} value={employee.id}>
                   {employee.name}
@@ -84,7 +90,8 @@ const AnimalForm = (props) => {
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewAnimal}
+              onClick={updateExistingAnimal}
+              className="btn btn-primary"
             >
               Submit
             </button>
@@ -95,4 +102,4 @@ const AnimalForm = (props) => {
   );
 };
 
-export default AnimalForm;
+export default AnimalEditForm;
