@@ -4,6 +4,11 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/animals/${id}`).then((result) => result.json());
   },
+  getWithEmployee(id) {
+    return fetch(`${remoteURL}/animals/${id}?_expand=employee`).then((result) =>
+      result.json()
+    );
+  },
   getAll() {
     return fetch(`${remoteURL}/animals`).then((result) => result.json());
   },
