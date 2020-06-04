@@ -23,6 +23,24 @@
       "breed": "asdff",
       "employeeId": 1,
       "id": 14
+    },
+    {
+      "name": "Whisky",
+      "breed": "Drunk",
+      "employeeId": 3,
+      "id": 15
+    },
+    {
+      "name": "Wiley",
+      "breed": "Coyote",
+      "employeeId": 1,
+      "id": 16
+    },
+    {
+      "name": "Jasper",
+      "breed": "Green",
+      "employeeId": 4,
+      "id": 17
     }
   ],
   "employees": [
