@@ -6,8 +6,10 @@ export default {
       results.json()
     );
   },
-  getAll() {
-    return fetch(`${remoteURL}/locations`).then((result) => result.json());
+  getAllWithEmployees() {
+    return fetch(`${remoteURL}/locations?_embed=employees`).then((result) =>
+      result.json()
+    );
   },
   delete(id) {
     return fetch(`${remoteURL}/locations/${id}`, {

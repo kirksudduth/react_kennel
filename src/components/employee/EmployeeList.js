@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 // import components we will need
 import EmployeeCard from "./EmployeeCard";
 import EmployeeManager from "../../modules/EmployeeManager";
+import AnimalManager from "../../modules/AnimalManager";
 
 const EmployeeList = (props) => {
   // create initial state of an empty array called
   //   employees and a function for updating array called setEmployees
   const [employees, setEmployees] = useState([]);
-
+  const [animals, setAnimals] = useState([]);
   const getEmployees = () => {
     //   After the data comes back from the API, we
     //   use the setEmployees function to update state
@@ -19,6 +20,17 @@ const EmployeeList = (props) => {
   const deleteEmployee = (id) => {
     EmployeeManager.delete(id).then(() =>
       EmployeeManager.getAll().then(setEmployees)
+    );
+  };
+
+  const handleDelete = (id) => {
+    AnimalManager.delete(id).then(() =>
+      EmployeeManager.getWithAnimals(props.match.params.employeeId).then(
+        (APIResult) => {
+          setEmployees(APIResult);
+          setAnimals(APIResult.animals);
+        }
+      )
     );
   };
 
@@ -47,7 +59,9 @@ const EmployeeList = (props) => {
           <EmployeeCard
             key={employee.id}
             employee={employee}
+            animals={animals}
             deleteEmployee={deleteEmployee}
+            deleteAnimal={handleDelete}
             {...props}
           />
         ))}

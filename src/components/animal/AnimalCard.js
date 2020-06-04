@@ -17,16 +17,19 @@ const AnimalCard = (props) => {
           type="button"
           onClick={() => {
             props.deleteAnimal(props.animal.id);
+            debugger;
+            if (props.history.location.pathname.startsWith("/employees/")) {
+              props.getAnimals();
+            } else {
+              props.history.push(`/animals`);
+            }
           }}
         >
           Discharge
         </button>
-        <button
-          type="button"
-          onClick={() => props.history.push(`animals/${props.animal.id}/edit`)}
-        >
-          Edit
-        </button>
+        <Link to={`/animals/${props.animal.id}/edit`}>
+          <button>Edit</button>
+        </Link>
         <Link to={`/animals/${props.animal.id}`}>
           <button>Details</button>
         </Link>

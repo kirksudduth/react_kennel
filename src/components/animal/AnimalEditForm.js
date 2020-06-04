@@ -10,7 +10,11 @@ const AnimalEditForm = (props) => {
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...animal };
-    stateToChange[evt.target.id] = evt.target.value;
+    let targetValue = evt.target.value;
+    if (/^\d+$/.test(targetValue)) {
+      targetValue = parseInt(targetValue);
+    }
+    stateToChange[evt.target.id] = targetValue;
     setAnimal(stateToChange);
   };
 

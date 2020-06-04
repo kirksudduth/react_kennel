@@ -1,6 +1,7 @@
 import React from "react";
 
 const EmployeeCard = (props) => {
+  console.log(props);
   return (
     <div className="card">
       <div className="card-content">
@@ -8,6 +9,12 @@ const EmployeeCard = (props) => {
           Name: <span className="card-employeeName">{props.employee.name}</span>
         </h3>
         <p>Kennel Caretaker Since {props.employee.hireYear}</p>
+        <button
+          type="button"
+          onClick={() => props.history.push(`/employees/${props.employee.id}`)}
+        >
+          Details
+        </button>
         <button
           type="button"
           onClick={() =>

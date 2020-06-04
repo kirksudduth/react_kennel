@@ -11,14 +11,14 @@ const LocationList = (props) => {
   const getLocations = () => {
     //   After the data comes back from the API, we
     //   use the setLocations function to update state
-    return LocationManager.getAll().then((locationsFromAPI) => {
+    return LocationManager.getAllWithEmployees().then((locationsFromAPI) => {
       setLocations(locationsFromAPI);
     });
   };
 
   const deleteLocation = (id) => {
     LocationManager.delete(id).then(() =>
-      LocationManager.getAll().then(setLocations)
+      LocationManager.getAllWithEmployees().then(setLocations)
     );
   };
 

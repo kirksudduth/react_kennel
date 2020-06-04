@@ -4,59 +4,57 @@
       "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
+      "employeeId": 4
+    },
+    {
+      "id": 8,
+      "name": "Norman",
+      "breed": "Nose",
+      "employeeId": 5
+    },
+    {
+      "id": 13,
+      "name": "Scratchy",
+      "breed": "Dog",
       "employeeId": 2
     },
     {
-      "id": 2,
-      "name": "Decker",
-      "breed": "German Shepherd",
-      "employeeId": 1
-    },
-    {
-      "id": 3,
-      "name": "Slick",
-      "breed": "German Retriever",
-      "employeeId": "2"
-    },
-    {
-      "id": 4,
-      "name": "Esme",
-      "breed": "Pitbull",
-      "employeeId": 1
-    },
-    {
-      "name": "Nala",
-      "breed": "Golden Retriever",
-      "id": 6,
-      "employeeId": 2
-    },
-    {
-      "name": "Urlimon",
-      "breed": "Bloodhound",
-      "id": 7,
-      "employeeId": 3
+      "name": "jwols",
+      "breed": "asdff",
+      "employeeId": 1,
+      "id": 14
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Ludwig V. Beethoven",
-      "hireYear": "2008"
+      "hireYear": "2008",
+      "locationId": 6
     },
     {
       "id": 2,
-      "name": "Alice Dvorak",
-      "hireYear": "2011"
+      "name": "Antonin Dvorak",
+      "hireYear": "2011",
+      "locationId": 3
     },
     {
+      "id": 3,
       "name": "Johann S. Bach",
-      "hireYear": "2010",
-      "id": 3
+      "hireYear": "2009",
+      "locationId": 2
     },
     {
       "name": "Pablo Sarasate",
       "hireYear": "2018",
-      "id": 4
+      "id": 4,
+      "locationId": 2
+    },
+    {
+      "name": "Antonio Vivaldi",
+      "hireYear": "2019",
+      "id": 5,
+      "locationId": 4
     }
   ],
   "owners": [
@@ -76,18 +74,12 @@
       "name": "Hillbert Hillsworth"
     },
     {
+      "name": "Michael Jordan",
       "phoneNumber": "434-888-9999",
-      "name": "Larry Bird",
       "id": 4
     }
   ],
   "locations": [
-    {
-      "id": 1,
-      "street": "500 Puppy Way",
-      "city": "Nashville",
-      "state": "TN"
-    },
     {
       "street": "889 Fido Pkwy",
       "city": "Nashville",
@@ -105,12 +97,6 @@
       "city": "Jackson",
       "state": "TN",
       "id": 4
-    },
-    {
-      "street": "502 Puppy Way",
-      "city": "Nashville",
-      "state": "TN",
-      "id": 5
     },
     {
       "street": "345 Bark Moore Ave",
