@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = (props) => {
+  const handleLogout = () => {
+    props.clearUser();
+    props.history.push("/");
+  };
+
   return (
     <header>
       <h1 className="site-title">
@@ -43,17 +49,23 @@ const NavBar = (props) => {
               </Link>
             </li>
           ) : null}
-          {!props.hasUser ? (
+          {props.hasUser ? (
+            <li>
+              <span className="nav-link" onClick={handleLogout}>
+                Logout
+              </span>
+            </li>
+          ) : (
             <li>
               <Link className="nav-link" to="/login">
                 Login
               </Link>
             </li>
-          ) : null}
+          )}
         </ul>
       </nav>
     </header>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
