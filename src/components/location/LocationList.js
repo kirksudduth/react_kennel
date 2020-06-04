@@ -4,6 +4,7 @@ import LocationCard from "./LocationCard";
 import LocationManager from "../../modules/LocationManager";
 
 const LocationList = (props) => {
+  const hasUser = props.hasUser;
   // create initial state of an empty array called
   //   locations and a function for updating array called setLocations
   const [locations, setLocations] = useState([]);
@@ -31,18 +32,21 @@ const LocationList = (props) => {
   //   of location cards
   return (
     <>
-      <section className="section-content">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => props.history.push("/locations/new")}
-        >
-          Expanding the Biz
-        </button>
-      </section>
+      {!props.hasUser ? null : (
+        <section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => props.history.push("/locations/new")}
+          >
+            Expanding the Biz
+          </button>
+        </section>
+      )}
       <div className="container-cards">
         {locations.map((location) => (
           <LocationCard
+            hasUser={hasUser}
             key={location.id}
             storeLocation={location}
             deleteLocation={deleteLocation}

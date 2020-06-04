@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const Login = (props) => {
-  console.log(props);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
   // Update state whenever an input field is edited
@@ -18,8 +17,7 @@ const Login = (props) => {
         the customer enters into session storage.
         ...Let's just trust the user... That's a good idea, right????
     */
-    // props.setUser(credentials);
-    sessionStorage.setItem("credentials", JSON.stringify(credentials));
+    props.setUser(credentials);
     props.history.push("/");
   };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationCard = (props) => {
+  console.log(props);
   const EmployeesArray = props.storeLocation.employees;
   return (
     <div className="card">
@@ -16,30 +17,27 @@ const LocationCard = (props) => {
             <p key={employee.id}>{employee.name}</p>
           ))}
         </div>
-        {/* {props.storeLocation.employees.forEach((employee) =>
-            employee.locationId === props.storeLocation.id ? (
-              <p>{employee.name}</p>
-            ) : (
-              <p>Nobody's Working</p>
-            )
-          )} */}
-        <button
-          type="button"
-          onClick={() => props.deleteLocation(props.storeLocation.id)}
-        >
-          Close Store
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            props.history.push(`locations/${props.storeLocation.id}/edit`)
-          }
-        >
-          Edit
-        </button>
-        <Link to={`/locations/${props.storeLocation.id}`}>
-          <button>Details</button>
-        </Link>
+        {!props.hasUser ? null : (
+          <>
+            <button
+              type="button"
+              onClick={() => props.deleteLocation(props.storeLocation.id)}
+            >
+              Close Store
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                props.history.push(`locations/${props.storeLocation.id}/edit`)
+              }
+            >
+              Edit
+            </button>
+            <Link to={`/locations/${props.storeLocation.id}`}>
+              <button>Details</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
