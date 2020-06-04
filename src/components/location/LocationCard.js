@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationCard = (props) => {
-  // const [location, setLocation] = useState({street: "", city: ""})
+  const EmployeesArray = props.storeLocation.employees;
   return (
     <div className="card">
       <div className="card-content">
@@ -10,6 +10,19 @@ const LocationCard = (props) => {
         <p>
           {props.storeLocation.city}, {props.storeLocation.state}
         </p>
+        <h5>Staff</h5>
+        <div className="staff">
+          {EmployeesArray.map((employee) => (
+            <p key={employee.id}>{employee.name}</p>
+          ))}
+        </div>
+        {/* {props.storeLocation.employees.forEach((employee) =>
+            employee.locationId === props.storeLocation.id ? (
+              <p>{employee.name}</p>
+            ) : (
+              <p>Nobody's Working</p>
+            )
+          )} */}
         <button
           type="button"
           onClick={() => props.deleteLocation(props.storeLocation.id)}

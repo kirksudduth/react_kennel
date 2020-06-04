@@ -6,7 +6,6 @@ const AnimalSpotlight = (props) => {
   const [animal, setAnimal] = useState({ name: "", breed: "" });
 
   useEffect(() => {
-    console.log(props);
     AnimalManager.get(props.animalId).then((animal) => {
       setAnimal({
         name: animal.name,
