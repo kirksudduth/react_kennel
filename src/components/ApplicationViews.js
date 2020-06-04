@@ -20,11 +20,8 @@ import Login from "./auth/Login";
 import AnimalManager from "../modules/AnimalManager";
 
 const ApplicationViews = (props) => {
-  // console.log(props.setUser);
-  // const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
   const setUser = props.setUser;
   const hasUser = props.hasUser;
-  // const [hasUser, setHasUser] = useState(isAuthenticated());
 
   return (
     <React.Fragment>
@@ -87,7 +84,7 @@ const ApplicationViews = (props) => {
         exact
         path="/locations"
         render={(props) => {
-          return <LocationList {...props} />;
+          return <LocationList hasUser={hasUser} {...props} />;
         }}
       />
       <Route
