@@ -36,5 +36,16 @@ nav .container li {
 }
 
 .nav-link:hover {
-  color: maroon;
+  color: darkblue;
+}
+
+.selected {
+  color: lime;
+}
+
+.disabled {
+}
+
+.nav-link:active {
+  color: lime;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./NavBar.css";
 
@@ -19,34 +19,55 @@ const NavBar = (props) => {
       <nav>
         <ul className="container">
           <li>
-            <Link className="nav-link" to="/">
+            <NavLink
+              className="nav-link"
+              activeClassName="selected"
+              exact
+              to="/"
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           {props.hasUser ? (
             <li>
-              <Link className="nav-link" to="/animals">
+              <NavLink
+                className="nav-link"
+                activeClassName="selected"
+                to="/animals"
+              >
                 Animals
-              </Link>
+              </NavLink>
             </li>
           ) : null}
           <li>
-            <Link className="nav-link" to="/locations">
+            <NavLink
+              className="nav-link"
+              activeClassName="selected"
+              to="/locations"
+            >
               Locations
-            </Link>
+            </NavLink>
           </li>
           {props.hasUser ? (
             <li>
-              <Link className="nav-link" to="/employees">
+              <NavLink
+                className="nav-link"
+                activeClassName="selected"
+                to="/employees"
+              >
                 Employees
-              </Link>
+              </NavLink>
             </li>
           ) : null}
           {props.hasUser ? (
             <li>
-              <Link className="nav-link" to="/owners">
+              <NavLink
+                className="nav-link"
+                activeClassName="selected"
+                to="/owners"
+              >
                 Owners
-              </Link>
+              </NavLink>
             </li>
           ) : null}
           {props.hasUser ? (
@@ -57,9 +78,13 @@ const NavBar = (props) => {
             </li>
           ) : (
             <li>
-              <Link className="nav-link" to="/login">
+              <NavLink
+                className="nav-link"
+                activeClassName="selected"
+                to="/login"
+              >
                 Login
-              </Link>
+              </NavLink>
             </li>
           )}
         </ul>

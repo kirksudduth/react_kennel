@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationCard = (props) => {
-  console.log(props);
   const EmployeesArray = props.storeLocation.employees;
   return (
     <div className="card">
